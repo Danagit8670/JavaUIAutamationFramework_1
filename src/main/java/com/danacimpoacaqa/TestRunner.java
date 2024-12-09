@@ -2,6 +2,7 @@ package com.danacimpoacaqa;
 
 import com.danacimpoacaqa.managers.DriverManager;
 import com.danacimpoacaqa.managers.RandomDataManager;
+import com.danacimpoacaqa.managers.ScrollManager;
 import org.openqa.selenium.*;
 
 import org.openqa.selenium.WindowType;
@@ -48,8 +49,7 @@ public class TestRunner {
         passwordInput.sendKeys(passwordData);
 
         WebElement privacyToggleBar = driver.findElement(By.name("agree"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",privacyToggleBar );
-        Thread.sleep(500);
+        ScrollManager.scrollToElement(privacyToggleBar);
         privacyToggleBar.click();
 
 
